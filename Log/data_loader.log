@@ -34,3 +34,5 @@
 2025-10-12 10:22:05,866 - INFO - Exiting Kaleido/Choreo
 2025-10-12 10:22:41,530 - INFO - TemporaryDirectory.cleanup() worked.
 2025-10-12 10:22:41,531 - INFO - shutil.rmtree worked.
+2025-11-29 14:39:51,691 - INFO - CSV fayl o'qilmoqda:...
+2025-11-29 14:39:51,704 - INFO - Fayl muvaffaqiyatli o'qildi. Sat\u0131rlar soni: 2022 ustunlar soni: 20
