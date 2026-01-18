@@ -1,0 +1,33 @@
+# Python cache
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Virtual environments
+env/
+venv/
+myvenv/
+
+# Git
+.git/
+.gitignore
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Logs & temp
+*.log
+
+# Archives
+*.tar
+*.tar.gz
+*.zip
+
+# Notebooks
+*.ipynb
+
+# Large raw datasets (lekin modelni saqlaymiz!)
+data/
+raw_data/

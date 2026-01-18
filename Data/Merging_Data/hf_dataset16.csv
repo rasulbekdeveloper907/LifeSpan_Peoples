@@ -1,17 +1,3 @@
-name,birth_date,birth_place,death_date,death_place,nationality,occupation,years_active,known_for,awards,alma_mater,education,field,spouse,children,genre
-Harrison Turner,{{birth date and age|2004|2|4|df=yes}},"[[Brisbane]], [[Queensland]], Australia",,,,,,,,,,,,,
-Olivia Green,{{birth date and age|1999|11|25|df=y}}<ref>{{cite web|url=https://www.uipmworld.org/athlete/olivia-green|title=Profile of Olivia Geeen|publisher=uipmworld.com|access-date=2024-05-02}}</ref>,,,,,,,,,,,,,,
-Brooke Harris,{{birth date and age|1997|8|27|df=yes}},"[[Adelaide]], [[South Australia]]",,,,,,,,,,,,,
-Mia Lee,1992,"[[Chicago]], [[Illinois]], U.S.",,,,Artist,,,,,[[University of Illinois]],,,,
-Olivia Hill,,,,,,,,,,,,,,2,
-Ulysses Brown,1920,,{{Death date and age|1942|09|07|1920}},"[[Geneva, Ohio]], U.S.",,,,,,,,,,,
-Vivian Johnson,,,,,,[[FBI Special Agent]],,,,,,,Marcus Johnson,Reggie Johnson }},
-Wesley Clark,{{birth date and age|1944|12|23|df=y}},"[[Chicago]], [[Illinois]], U.S.",,,,,,,''[[List of awards and nominations received by Wesley Clark|See all]]'',"[[United States Military Academy]] ([[Bachelor of Science|BS]])<br />[[Magdalen College, Oxford]] ([[Bachelor of Arts|BA]])<br />[[U.S. Army Command and General Staff College]] ([[Master of Military Art and Science|MMAS]])",,,{{marriage|Gertrude Kingston|1967}},,
-Amber Brown,,,,,,,,,,,,,,,"[[Children's literature]], [[realistic fiction]]"
-Hazel Clark,{{Birth date and age|1977|10|3|mf=y}},"[[Livingston, New Jersey]]",,,{{USA}},,,,,,,,,,
-Miles Johnson,{{birth year and age|1965}},"[[Aldershot]], [[Hampshire]], England",,,,,,,,,,,,,
-H. Peyton Young,{{birth date and age|1945|3|9|mf=y}},,,,American,,,[[Evolutionary Game Theory]] <br />[[Social Dynamics]]<br />Learning in Games<br />Social Norms<br />[[Distributive justice]]<br />Applications of Game Theory to Finance,,[[North Shore Country Day School]]<br />[[Harvard University]]<br />[[University of Michigan]],,"[[Economics]], [[Game theory]], [[Finance]]",,,
-Blake White,{{Birth date and age|2000|3|15|df=yes}},"[[Stockbridge, Georgia]], United States",,,,,,,,,,,,,
-Dylan Brown,{{Birth date and age|2000|06|21|df=y}},"[[Auckland]], New Zealand",,,,,,,,,,,,,
-Felix Davis,{{Birth date|1869|7|10|df=y}},"[[Hasland]], England",{{Death year and age|1950|1869}},,,,,,,,,,,,
-Olivia Clark,{{Birth date and age|df=yes|2001|08|30}}<ref>{{Cite web|url=https://www.bcfc.co.uk/teams/womens-first-team/13-olivia-clark/|title=13. Olivia Clark|website=Bristol City}}</ref>,"[[Lincoln, England|Lincoln]], England",,,,,,,,,,,,,
+version https://git-lfs.github.com/spec/v1
+oid sha256:23333921a9b2ccbde84333ad5fdd26c17655561fdb262e1668d10daf6d1d06aa
+size 2531
