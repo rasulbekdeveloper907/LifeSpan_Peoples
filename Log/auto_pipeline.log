@@ -1,4 +1,0 @@
-2025-10-14 10:34:03,032 - INFO - Ma'lumot fayli yuklanmoqda...
-2025-10-14 10:34:03,032 - ERROR - Ma'lumot faylini yuklashda xatolik yuz berdi: type object 'DataLoader' has no attribute 'load_csv'
-2025-10-14 10:35:21,451 - INFO - Data loaded successfully. Shape: (2022, 20)
-2025-10-14 10:37:05,207 - INFO - Data loaded successfully. Shape: (2022, 20)

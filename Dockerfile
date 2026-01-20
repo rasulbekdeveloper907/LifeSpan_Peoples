@@ -1,28 +1,53 @@
-FROM python:3.13-slim
+# ============================
+# Base image (ML safe)
+# ============================
+FROM python:3.11-slim
 
+# ============================
+# Environment variables
+# ============================
 ENV PYTHONDONTWRITEBYTECODE=1
 ENV PYTHONUNBUFFERED=1
 
-WORKDIR /app
-
+# ============================
+# System dependencies
+# ============================
 RUN apt-get update && apt-get install -y \
     build-essential \
     gcc \
-    libgl1 \
-    ffmpeg \
     curl \
     && rm -rf /var/lib/apt/lists/*
 
-# requirements
+# ============================
+# Working directory
+# ============================
+WORKDIR /app
+
+# ============================
+# Python dependencies
+# ============================
 COPY requirements.txt .
 RUN pip install --upgrade pip \
     && pip install --no-cache-dir -r requirements.txt
 
-# project files
-COPY . .
+# ============================
+# Copy project files
+# ============================
+COPY demo/ demo/
+COPY Models/ Models/
 
-# Gradio default port
+# ============================
+# Security: non-root user
+# ============================
+RUN useradd -m appuser
+USER appuser
+
+# ============================
+# Gradio port
+# ============================
 EXPOSE 7860
 
-# run Gradio app
+# ============================
+# Run Gradio app
+# ============================
 CMD ["python", "demo/app.py"]

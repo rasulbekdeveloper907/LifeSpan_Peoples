@@ -12,15 +12,18 @@ logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
 
 # --------------------------------------------------
-# Model path (Windows compatible)
+# Model path (Windows)
 # --------------------------------------------------
-MODEL_PATH = Path(r"C:\Users\Rasulbek907\Desktop\ML_Engineer_Salary_Prediction\Models\xgb_model.pkl")
+MODEL_PATH = Path(
+    r"C:\Users\Rasulbek907\Desktop\LifeSpan_Peoples\Models\GradientBoostingRegressor.joblib"
+)
 
 # --------------------------------------------------
 # FastAPI app
 # --------------------------------------------------
 app = FastAPI(
-    title="💼 ML Engineer Salary Prediction API",
+    title="🧬 Life Span Prediction API",
+    description="Regression model orqali inson umr davomiyligini bashorat qilish",
     version="1.0"
 )
 
@@ -34,37 +37,50 @@ def load_model():
     global model
     try:
         model = joblib.load(MODEL_PATH)
-        logger.info("Model loaded from %s", MODEL_PATH)
+        logger.info("Model muvaffaqiyatli yuklandi: %s", MODEL_PATH)
     except Exception as e:
-        logger.error("Failed to load model: %s", e)
+        logger.error("Model yuklashda xatolik: %s", e)
         model = None
 
 # --------------------------------------------------
 # Input Schema (FEATURES)
+# (life_span YO‘Q, chunki u TARGET)
 # --------------------------------------------------
-class SalaryInput(BaseModel):
-    work_year: int
-    experience_level: str
-    employment_type: str
-    job_title: str
-    salary_currency: str
-    employee_residence: str
-    remote_ratio: int
-    company_location: str
-    company_size: str
+class LifeSpanInput(BaseModel):
+    name: float
+    birth_date: float
+    birth_place: float
+    death_date: float
+    death_place: float
+    occupation: float
+    awards: float
+    alma_mater: float
+    education: float
+    spouse: float
+    children: float
+    occupation_cluster: float
+    birth_year: float
+    death_year: float
+    life_span_cluster: float
+    edu_award_cluster: float
+    bio_cluster: float
 
 # --------------------------------------------------
-# Output Schema (REGRESSION)
+# Output Schema
 # --------------------------------------------------
-class SalaryPrediction(BaseModel):
-    predicted_salary_usd: float
+class LifeSpanPrediction(BaseModel):
+    predicted_life_span: float
 
 # --------------------------------------------------
 # Health endpoints
 # --------------------------------------------------
 @app.get("/")
 def root():
-    return {"status": "running", "model": "XGBoost Salary Regressor"}
+    return {
+        "status": "running",
+        "model": "GradientBoostingRegressor",
+        "task": "Life Span Prediction"
+    }
 
 @app.get("/health")
 def health():
@@ -73,21 +89,23 @@ def health():
 # --------------------------------------------------
 # Predict endpoint
 # --------------------------------------------------
-@app.post("/predict", response_model=SalaryPrediction)
-def predict(data: SalaryInput):
+@app.post("/predict", response_model=LifeSpanPrediction)
+def predict(data: LifeSpanInput):
 
     if model is None:
-        raise HTTPException(status_code=500, detail="Model not loaded")
+        raise HTTPException(status_code=500, detail="Model yuklanmagan")
 
+    # Input -> DataFrame
     df = pd.DataFrame([data.model_dump()])
 
     try:
         prediction = model.predict(df)[0]
     except Exception as e:
+        logger.error("Prediction xatoligi: %s", e)
         raise HTTPException(status_code=500, detail=str(e))
 
-    logger.info("Predicted salary: %.2f USD", prediction)
+    logger.info("Predicted life span: %.2f years", prediction)
 
-    return SalaryPrediction(
-        predicted_salary_usd=round(float(prediction), 2)
+    return LifeSpanPrediction(
+        predicted_life_span=round(float(prediction), 2)
     )
