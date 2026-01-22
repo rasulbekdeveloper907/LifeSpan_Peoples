@@ -8,27 +8,37 @@ Datasetda 2500 dan ortiq tarixiy shaxs haqidagi ma’lumotlar mavjud bo‘lib, u
 
 ---
 
-## 📁 Ma'lumotlar (Dataset)
+## 🚀 Technical Contribution
 
-- **Manba**: [Dataset havolasi yoki manba nomi]
-- **Yozuvlar soni**: 2500 ta tarixiy shaxs
-- **Format**: CSV
-- **Ustunlar**:
-  - `Ism`
-  - `Tug‘ilgan yil`
-  - `Vafot etgan yil`
-  - `Kasbi`
-  - `Yashagan davri`
-  - `Asr`
-  - `Umr davomiyligi` (target — sonli qiymat sifatida)
+### 📊 Project Overview
+- Ushbu loyiha tarixiy va biografik ma’lumotlar asosida shaxslarning **umr davomiyligini (`life_span`)** bashorat qilishga qaratilgan **supervised regression** muammosini hal qiladi.
+- Dataset **2022 ta kuzatuv** va **20 ta feature** dan iborat bo‘lib, demografik, biografik hamda **cluster-based** ustunlarni o‘z ichiga oladi.
 
----
+### 🧹 Data Processing & Feature Engineering
+- Ma’lumotlarda **missing value** mavjud emas, bu esa model barqarorligini oshirdi.
+- Yuqori kardinalilikka ega kategorik ustunlar (`occupation`, `education`, `awards`) **clustering va encoding** orqali siqildi.
+- Sana ustunlaridan (`birth_date`, `death_date`) **numeric yilga oid feature** lar ajratildi.
+- Modelga mos bo‘lishi uchun faqat **numeric va encoded feature** lar ishlatildi.
 
-## 🎯 Loyihaning maqsadi
+### 📈 Modeling & Evaluation
+- Baseline sifatida **Linear Regression, Decision Tree, Random Forest va XGBoost** modellari baholandi.
+- Linear Regression past natija ko‘rsatib, ma’lumotlardagi **non-linear bog‘lanishlarni** ushlay olmasligi aniqlandi.
+- Ensemble modellar ichida **Gradient Boosting** eng yaxshi natijani berdi  
+  👉 **R² = 0.8426**, **RMSE = 30.33**.
+- Ushbu model **bias–variance balansini** samarali ushlagani uchun asosiy model sifatida tanlandi.
 
-> Tarixiy shaxslarning kasbiga va boshqa atributlarga asoslanib, ularning umr davomiyligini yillar bo‘yicha aniq bashorat qilish.
+### ⚙️ Hyperparameter Optimization
+- Tanlangan Gradient Boosting modeli **Optuna** yordamida tuning qilindi.
+- `n_estimators`, `learning_rate`, `max_depth`, `subsample` kabi parametrlar optimallashtirildi.
+- Tuning jarayonida **overfittingni kamaytirish** va **generalization** ni yaxshilash maqsad qilindi.
 
----
+### 🧠 Final Outcome
+- Loyiha davomida **tree-based va ensemble modeling** strategiyalari muvaffaqiyatli qo‘llandi.
+- Feature engineering va model tanlash **tizimli va asosli** tarzda amalga oshirildi.
+- Natijada, loyiha **ishlab chiqarishga tayyor**, **barqaror** va **tushuntiriladigan** regression pipeline bilan yakunlandi ✅
+
+
+
 
 ## ⚙️ Ishlatilgan texnologiyalar
 
@@ -42,66 +52,35 @@ Datasetda 2500 dan ortiq tarixiy shaxs haqidagi ma’lumotlar mavjud bo‘lib, u
 
 ---
 
-## 🛠️ Ish jarayoni
+## 💼 Business Contribution
 
-1. **Ma'lumotlarni tozalash**  
-   - Tug‘ilgan yoki vafot etgan yili bo‘lmagan yozuvlarni olib tashlash  
-   - Noto‘g‘ri va manfiy qiymatlarni filtr qilish  
+### 🎯 Business Objective
+- Loyiha maqsadi — tarixiy va biografik ma’lumotlar asosida shaxslarning **taxminiy umr davomiyligini oldindan bashorat qilish**, bu orqali **analitik qarorlar qabul qilishni qo‘llab-quvvatlash**.
 
-2. **Feature Engineering**  
-   - `Umr = Vafot etgan yil - Tug‘ilgan yil` sifatida hisoblash  
-   - Kasb, asr va yashagan davr kabi kategorik ustunlarni raqamli formatga o'tkazish (`LabelEncoder`, `OneHotEncoder`)  
+### 📊 Business Value
+- Model shaxslarning umr davomiyligiga ta’sir qiluvchi **asosiy omillarni aniqlash** imkonini berdi (ta’lim, kasb, mukofotlar, biografik klasterlar).
+- Murakkab ma’lumotlarni **oddiy va tushunarli bashoratga** aylantirib, biznes foydalanuvchilar uchun qiymat yaratildi.
+- Bashorat natijalari **tarixiy tadqiqotlar**, **sug‘urta risk tahlili**, **demografik analitika** va **kontent tavsiya tizimlari** uchun ishlatilishi mumkin.
 
-3. **Model tanlash va o‘qitish**  
-   - Decision Tree Regressor  
-   - Random Forest Regressor  
-   - Linear Regression  
-   - XGBoost Regressor  
+### 🚀 Decision Support
+- Ensemble modeling yordamida olingan natijalar **bir modelga tayanish riskini kamaytirdi**.
+- Gradient Boosting modeli **eng ishonchli va barqaror yechim** sifatida tanlanib, real muhitda qo‘llashga tayyor holatga keltirildi.
+- Model natijalari **scenario-based tahlil** va **prognozlash** uchun foydalanilishi mumkin.
 
-4. **Model baholash**  
-   - R² (R-squared) balli orqali aniqlik baholandi  
+### 💰 Efficiency & Impact
+- Feature dimensionality clustering orqali kamaytirilib, **hisoblash resurslari tejaldi**.
+- Avtomatlashtirilgan modeling pipeline **vaqt va operatsion xarajatlarni qisqartirdi**.
+- Loyihaning modulli tuzilishi uni boshqa dataset va sohalarga **tez moslashtirish imkonini berdi**.
 
----
+### 🧠 Strategic Outcome
+- Data-driven yondashuv asosida **qaror qabul qilish sifati oshdi**.
+- Model biznes jamoa uchun **analitik ishonch** va **prognoz aniqligini** ta’minladi.
+- Natijada loyiha **uzoq muddatli strategik rejalashtirish** uchun mustahkam analitik asos yaratdi ✅
 
-## 📊 Natijalar
-
-| Model               | R² balli (%) |
-|---------------------|--------------|
-| Decision Tree       | 100.0%       |
-| Random Forest       | 91.0%        |
-| Linear Regression   | 20.0%        |
-| XGBoost             | 99.0%        |
-
-> ✅ **Eng yaxshi natija**: Decision Tree Regressor — 100% R² balli bilan.
-
----
-
-## 📈 Vizualizatsiyalar
-
-- Kasb bo‘yicha umr davomiyligi taqsimoti  
-- Modellarning R² ballarini solishtirish grafigi  
-- Predict va actual qiymatlar taqqoslanishi grafigi  
-
----
-
-## 🚀 Kelajakdagi reja
-
-- Qo‘shimcha atributlar kiritish (hudud, shaxsning ijtimoiy mavqei va boshqalar)  
-- Modelni yanada yaxshilash uchun hyperparameter tuning  
-- Kross-valyadatsiya asosida model barqarorligini oshirish  
-- Interaktiv web-interfeys yaratish (Streamlit yoki Flask)  
-
----
 
 ## 💻 Loyihani ishga tushirish
 
 ```bash
-git clone https://github.com/username/tarixiy-kasb-umr-bashorati.git
-cd tarixiy-kasb-umr-bashorati
-pip install -r requirements.txt
-jupyter notebook
-
-
 📞 Aloqa
 
 Loyihaga oid savollar uchun:
